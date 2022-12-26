@@ -1,10 +1,12 @@
-package com.example.tanding;
+package com.example.tanding.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tanding.R;
 
 public class SplashScreen extends AppCompatActivity {
 
