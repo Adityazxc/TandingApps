@@ -6,112 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <FrameLayout
+        android:id="@+id/fragmentFrame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/app_bar"
-            app:title="@string/app_name"
-            app:titleCentered="true"
-            app:titleTextColor="@color/white" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/search_view_ractangle"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
+        app:elevation="16dp"
+        app:menu="@menu/bottom_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:queryHint="Cari Gor atau Teman"
-        app:iconifiedByDefault="false"/>
-
-    <LinearLayout
-        android:id="@+id/ractangle_schedule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/schedule_ractangle"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
-        tools:layout_editor_absoluteX="16dp">
-
-        <TextView
-            android:id="@+id/txt_badminton_schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="Jadwal Bermain Badminton"
-            android:textColor="@color/white" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_schedule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txt_nearest_gor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gor Terdekat"
-        android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ractangle_schedule" />
-
-    <TextView
-        android:id="@+id/txt_gor_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lihat Semua"
-        android:layout_margin="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ractangle_schedule" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_gor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nearest_gor" />
-
-    <TextView
-        android:id="@+id/txt_nearest_friend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Teman Terdekat"
-        android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_gor" />
-
-    <TextView
-        android:id="@+id/txt_friend_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lihat Semua"
-        android:layout_margin="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_gor" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_friend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nearest_friend" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
