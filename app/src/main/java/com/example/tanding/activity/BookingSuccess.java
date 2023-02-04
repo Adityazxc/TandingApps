@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tanding.R;
 
-public class Home extends AppCompatActivity {
+public class BookingSuccess extends AppCompatActivity {
 
     Button btn_home;
     @Override
@@ -17,12 +17,12 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.success_booking);
 
-        btn_home=(Button) findViewById(R.id.btn_home);
+        btn_home=(Button) findViewById(R.id.btn_beranda);
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, MainActivity.class);
-                Home.this.startActivity(intent);
+                Intent intent = new Intent(BookingSuccess.this, MainActivity.class);
+                BookingSuccess.this.startActivity(intent);
                 finish();
             }
         });

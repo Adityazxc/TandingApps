@@ -1,56 +1,71 @@
 package com.example.tanding.activity;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+
+import com.example.tanding.fragment.ChatFragment;
+import com.example.tanding.fragment.HistoryFragment;
+import com.example.tanding.fragment.HomeFragment;
 import com.example.tanding.R;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText username, password;
-    Button btnLogin,text_signup;
+    private BottomNavigationView bottomNavigationView;
+
+    HomeFragment homeFragment = new HomeFragment();
+    ChatFragment chatFragment = new ChatFragment();
+    HistoryFragment historyFragment = new HistoryFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_main);
 
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        text_signup = (Button) findViewById(R.id.text_signup);
-//        text_signup.setOnClickListener(new View.OnClickListener()){
-//            @Override
-//                    public void onClick(View v){
-//
-//            }
-//        };
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentFrame, homeFragment, null)
+                .setReorderingAllowed(true)
+                .addToBackStack(null)
+                .commit();
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                String usernameKey=username.getText().toString();
-                String passwordKey=password.getText().toString();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home_menu:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.fragmentFrame, homeFragment, null)
+                                .setReorderingAllowed(true)
+                                .addToBackStack(null)
+                                .commit();
 
-
-                if(usernameKey.equals("admin")&&passwordKey.equals("admin")) {
-
-                    //jika login berhasil
-                    Toast.makeText(getApplicationContext(), "Login Sukses", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, Home.class);
-                    MainActivity.this.startActivity(intent);
-                    finish();
-                } else{
-                        //jika login gagal
-                        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
-                        builder.setMessage("Username atau Password Anda salah").setNegativeButton("Retry",null).create().show();
-                    }
+                        break;
+                    case R.id.chat_menu:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.fragmentFrame, chatFragment, null)
+                                .setReorderingAllowed(true)
+                                .addToBackStack(null)
+                                .commit();
+                        break;
+                    case R.id.history_menu:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.fragmentFrame, historyFragment, null)
+                                .setReorderingAllowed(true)
+                                .addToBackStack(null)
+                                .commit();
+                        break;
                 }
+                return true;
+            }
         });
     }
 }

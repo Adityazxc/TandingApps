@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="form">#EFEFF0</color>
     <color name="button">#3B9A56</color>
-
+    <color name="gray_background">#BBBBC5</color>
 
 </resources>
