@@ -1,119 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.HomeFragment">
+    android:fillViewport="true">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".fragment.HomeFragment">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/app_bar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/app_bar"
-            app:title="@string/app_name"
-            app:titleCentered="true"
-            app:titleTextColor="@color/white" />
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/app_bar"
+                app:title="@string/app_name"
+                app:titleCentered="true"
+                app:titleTextColor="@color/white" />
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/search_view_ractangle"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:queryHint="Cari Gor atau Teman"
-        app:iconifiedByDefault="false"/>
+        </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:id="@+id/ractangle_schedule"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/schedule_ractangle"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
-        tools:layout_editor_absoluteX="16dp">
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/search_view_ractangle"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:queryHint="Cari Gor atau Teman" />
+
+        <LinearLayout
+            android:id="@+id/ractangle_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/schedule_ractangle"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/search_view"
+            tools:layout_editor_absoluteX="16dp">
+
+            <TextView
+                android:id="@+id/txt_badminton_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="Jadwal Bermain Badminton"
+                android:textColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/txt_badminton_schedule"
+            android:id="@+id/txt_nearest_gor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="Jadwal Bermain Badminton"
-            android:textColor="@color/white" />
+            android:layout_margin="16dp"
+            android:text="Gor Terdekat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ractangle_schedule" />
+
+        <TextView
+            android:id="@+id/txt_gor_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Lihat Semua"
+            android:textColor="@color/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ractangle_schedule" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_schedule"
+            android:id="@+id/recycler_gor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nearest_gor" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/txt_nearest_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Teman Terdekat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_gor" />
 
-    <TextView
-        android:id="@+id/txt_nearest_gor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gor Terdekat"
-        android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ractangle_schedule" />
+        <TextView
+            android:id="@+id/txt_friend_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Lihat Semua"
+            android:textColor="@color/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_gor" />
 
-    <TextView
-        android:id="@+id/txt_gor_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lihat Semua"
-        android:layout_margin="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ractangle_schedule"
-        android:textColor="@color/button"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_friend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nearest_friend" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_gor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nearest_gor" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/txt_nearest_friend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Teman Terdekat"
-        android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_gor" />
-
-    <TextView
-        android:id="@+id/txt_friend_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lihat Semua"
-        android:layout_margin="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_gor"
-        android:textColor="@color/button" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_friend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nearest_friend" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -20,9 +20,12 @@ public class GorAdapter extends RecyclerView.Adapter<GorAdapter.HomeViewHolder> 
     private List<Gor> gorList;
     private Context context;
 
-    public GorAdapter(List<Gor> gorList, Context context) {
+    private GorItemCLickListener gorItemCLickListener;
+
+    public GorAdapter(List<Gor> gorList, Context context, GorItemCLickListener gorItemCLickListener) {
         this.gorList = gorList;
         this.context = context;
+        this.gorItemCLickListener = gorItemCLickListener;
     }
 
     @NonNull
@@ -37,6 +40,12 @@ public class GorAdapter extends RecyclerView.Adapter<GorAdapter.HomeViewHolder> 
         Gor gor = gorList.get(position);
         holder.circleImageView.setImageDrawable(context.getResources().getDrawable(gor.getGor_image()));
         holder.textView.setText(gor.getNama_gor());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gorItemCLickListener.gorOnItemClick(gorList.get(position));
+            }
+        });
     }
 
     @Override
@@ -52,5 +61,9 @@ public class GorAdapter extends RecyclerView.Adapter<GorAdapter.HomeViewHolder> 
             circleImageView = itemView.findViewById(R.id.circle_photo);
             textView = itemView.findViewById(R.id.txt_items_name);
         }
+    }
+
+    public interface GorItemCLickListener {
+        public void gorOnItemClick(Gor gor);
     }
 }
