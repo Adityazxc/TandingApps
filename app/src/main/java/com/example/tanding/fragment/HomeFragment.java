@@ -127,7 +127,7 @@ public class HomeFragment extends Fragment implements GorAdapter.GorItemCLickLis
         fragmentManager.beginTransaction()
                 .replace(R.id.fragmentFrame, bookingFragment, null)
                 .setReorderingAllowed(true)
-                .addToBackStack(null)
+                .addToBackStack("booking")
                 .commit();
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -109,7 +110,14 @@ public class BookingDetailFragment extends Fragment {
         buatPesananButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment successFragment = SuccessFragment.newInstance("SUCCESS", "success");
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentFrame, successFragment, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

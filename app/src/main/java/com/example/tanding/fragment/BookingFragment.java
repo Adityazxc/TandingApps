@@ -151,7 +151,7 @@ public class BookingFragment extends Fragment implements JamAdapter.JamItemClick
         fragmentManager.beginTransaction()
                 .replace(R.id.fragmentFrame, bookingDetailFragment, null)
                 .setReorderingAllowed(true)
-                .addToBackStack(null)
+                .addToBackStack("booking")
                 .commit();
     }
 }

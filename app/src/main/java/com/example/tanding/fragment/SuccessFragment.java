@@ -3,10 +3,12 @@ package com.example.tanding.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.tanding.R;
 
@@ -16,6 +18,9 @@ import com.example.tanding.R;
  * create an instance of this fragment.
  */
 public class SuccessFragment extends Fragment {
+
+    Button backHomeButton;
+    HomeFragment homeFragment;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +66,28 @@ public class SuccessFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_success, container, false);
+        View view = inflater.inflate(R.layout.fragment_success, container, false);
+
+        backHomeButton = view.findViewById(R.id.btn_back_home);
+
+        btnBackHomeOnClick();
+
+        return view;
+    }
+
+    private void btnBackHomeOnClick() {
+        backHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+                fragmentManager.popBackStack("booking", 3);
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.fragmentFrame, homeFragment, null)
+//                        .setReorderingAllowed(true)
+//                        .addToBackStack(null)
+//                        .commit();
+            }
+        });
     }
 }
