@@ -2,7 +2,12 @@ package com.example.tanding.fragment;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +16,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tanding.R;
+import com.example.tanding.adapter.JamAdapter;
+import com.example.tanding.adapter.TanggalAdapter;
+import com.example.tanding.model.Gor;
+import com.example.tanding.model.GorList;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BookingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BookingFragment extends Fragment {
+public class BookingFragment extends Fragment implements JamAdapter.JamItemClickListener {
 
     ImageView gorImageView;
     TextView gorNamaTextView;
     TextView gorAlamatTextView;
+
+    ArrayList<Gor> gorArrayList = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,9 +92,67 @@ public class BookingFragment extends Fragment {
         gorNamaTextView = view.findViewById(R.id.txt_gor_name_booking);
         gorAlamatTextView = view.findViewById(R.id.txt_gor_alamat_booking);
 
+        setOnBackPressed(view);
+
         gorImageView.setImageDrawable(getContext().getResources().getDrawable(mParam3));
         gorNamaTextView.setText(mParam1);
         gorAlamatTextView.setText(mParam2);
+
+        buildJamData();
+        initRecyclerView(view);
+
         return view;
+    }
+
+    private void setOnBackPressed(View view) {
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.chevron_left_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
+    }
+
+    private void initRecyclerView(View view) {
+        RecyclerView recyclerViewJam = view.findViewById(R.id.recycler_gor_jam);
+        recyclerViewJam.setHasFixedSize(true);
+        recyclerViewJam.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+        JamAdapter jamAdapter = new JamAdapter(gorArrayList, getActivity().getApplicationContext(), this);
+        recyclerViewJam.setAdapter(jamAdapter);
+
+        RecyclerView recyclerViewTanggal = view.findViewById(R.id.recycler_gor_tanggal);
+        recyclerViewTanggal.setHasFixedSize(true);
+        recyclerViewTanggal.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+        TanggalAdapter tanggalAdapter = new TanggalAdapter(gorArrayList, getActivity().getApplicationContext());
+        recyclerViewTanggal.setAdapter(tanggalAdapter);
+    }
+
+    private void buildJamData() {
+        gorArrayList.clear();
+
+        for (int i = 0; i < GorList.nama_gor.length; i++) {
+            gorArrayList.add(new Gor(
+                    "",
+                    "",
+                    GorList.jam_buka[i],
+                    "",
+                    GorList.tanggal_buka[i],
+                    0
+            ));
+        }
+    }
+
+    @Override
+    public void jamOnItemCLick(Gor gor) {
+        Fragment bookingDetailFragment = BookingDetailFragment.newInstance(gor.getNama_gor(), gor.getAlamat());
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentFrame, bookingDetailFragment, null)
+                .setReorderingAllowed(true)
+                .addToBackStack(null)
+                .commit();
     }
 }

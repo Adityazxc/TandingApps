@@ -108,6 +108,7 @@ public class HomeFragment extends Fragment implements GorAdapter.GorItemCLickLis
     }
 
     private void buildJadwalData() {
+        jadwalArrayList.clear();
         jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
         jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
         jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
