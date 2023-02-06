@@ -46,7 +46,6 @@ public class BookingFragment extends Fragment implements JamAdapter.JamItemClick
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private Integer mParam3;
 
 
@@ -134,19 +133,19 @@ public class BookingFragment extends Fragment implements JamAdapter.JamItemClick
 
         for (int i = 0; i < GorList.nama_gor.length; i++) {
             gorArrayList.add(new Gor(
-                    "",
-                    "",
+                    mParam1,
+                    mParam2,
                     GorList.jam_buka[i],
                     "",
                     GorList.tanggal_buka[i],
-                    0
+                    mParam3
             ));
         }
     }
 
     @Override
     public void jamOnItemCLick(Gor gor) {
-        Fragment bookingDetailFragment = BookingDetailFragment.newInstance(gor.getNama_gor(), gor.getAlamat());
+        Fragment bookingDetailFragment = BookingDetailFragment.newInstance(gor.getNama_gor(), gor.getAlamat(), gor.getGor_image(), gor.getJam_buka());
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
