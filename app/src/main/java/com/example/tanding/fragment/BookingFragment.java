@@ -97,7 +97,7 @@ public class BookingFragment extends Fragment implements JamAdapter.JamItemClick
         gorNamaTextView.setText(mParam1);
         gorAlamatTextView.setText(mParam2);
 
-        buildJamData();
+//        buildJamData();
         initRecyclerView(view);
 
         return view;
@@ -128,24 +128,24 @@ public class BookingFragment extends Fragment implements JamAdapter.JamItemClick
         recyclerViewTanggal.setAdapter(tanggalAdapter);
     }
 
-    private void buildJamData() {
-        gorArrayList.clear();
-
-        for (int i = 0; i < GorList.nama_gor.length; i++) {
-            gorArrayList.add(new Gor(
-                    mParam1,
-                    mParam2,
-                    GorList.jam_buka[i],
-                    "",
-                    GorList.tanggal_buka[i],
-                    mParam3
-            ));
-        }
-    }
+//    private void buildJamData() {
+//        gorArrayList.clear();
+//
+//        for (int i = 0; i < GorList.nama_gor.length; i++) {
+//            gorArrayList.add(new Gor(
+//                    mParam1,
+//                    mParam2,
+//                    GorList.jam_buka[i],
+//                    "",
+//                    GorList.tanggal_buka[i],
+//                    mParam3
+//            ));
+//        }
+//    }
 
     @Override
     public void jamOnItemCLick(Gor gor) {
-        Fragment bookingDetailFragment = BookingDetailFragment.newInstance(gor.getNama_gor(), gor.getAlamat(), gor.getGor_image(), gor.getJam_buka());
+        Fragment bookingDetailFragment = BookingDetailFragment.newInstance(gor.getNama_gor(), gor.getAlamat(), 0, gor.getJam_buka());
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         fragmentManager.beginTransaction()

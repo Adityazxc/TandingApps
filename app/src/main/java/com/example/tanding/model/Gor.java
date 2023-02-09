@@ -6,15 +6,24 @@ public class Gor {
     private String jam_buka;
     private String jam_tutup;
     private String tanggal_buka;
-    private Integer gor_image;
+    private String gor_image;
+    private String kontak;
+    private String harga;
+    private String key;
 
-    public Gor(String nama_gor, String alamat, String jam_buka, String jam_tutup, String tanggal_buka, Integer gor_image) {
+    public Gor() {
+    }
+
+    public Gor(String nama_gor, String alamat, String jam_buka, String jam_tutup, String tanggal_buka, String gor_image, String kontak, String harga, String key) {
         this.nama_gor = nama_gor;
         this.alamat = alamat;
         this.jam_buka = jam_buka;
         this.jam_tutup = jam_tutup;
         this.tanggal_buka = tanggal_buka;
         this.gor_image = gor_image;
+        this.kontak = kontak;
+        this.harga = harga;
+        this.key = key;
     }
 
     public String getNama_gor() {
@@ -57,11 +66,35 @@ public class Gor {
         this.tanggal_buka = tanggal_buka;
     }
 
-    public Integer getGor_image() {
+    public String getGor_image() {
         return gor_image;
     }
 
-    public void setGor_image(Integer gor_image) {
+    public void setGor_image(String gor_image) {
         this.gor_image = gor_image;
+    }
+
+    public String getKontak() {
+        return kontak;
+    }
+
+    public void setKontak(String kontak) {
+        this.kontak = kontak;
+    }
+
+    public String getHarga() {
+        return harga;
+    }
+
+    public void setHarga(String harga) {
+        this.harga = harga;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

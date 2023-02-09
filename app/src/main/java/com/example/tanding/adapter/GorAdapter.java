@@ -38,7 +38,7 @@ public class GorAdapter extends RecyclerView.Adapter<GorAdapter.HomeViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull GorAdapter.HomeViewHolder holder, int position) {
         Gor gor = gorList.get(position);
-        holder.circleImageView.setImageDrawable(context.getResources().getDrawable(gor.getGor_image()));
+//        holder.circleImageView.setImageDrawable(context.getResources().getDrawable(gor.getGor_image()));
         holder.textView.setText(gor.getNama_gor());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

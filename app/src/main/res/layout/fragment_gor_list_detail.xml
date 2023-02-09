@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.BookingDetailFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/img_gor_list_booking_detail"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/account_circle"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_detail" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_gor_list_booking_detail">
+
+        <TextView
+            android:id="@+id/txt_gor_list_name_booking_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_gor_list_alamat_booking_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/img_separator_list"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/separator" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_detail">
+
+        <TextView
+            android:id="@+id/txt_jam_buka_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jam Buka" />
+
+        <TextView
+            android:id="@+id/txt_nilai_jam_buka_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="893743814789" />
+
+        <TextView
+            android:id="@+id/txt_jam_tutup_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_jam_buka_list"
+            android:text="Jam Tutup" />
+
+        <TextView
+            android:id="@+id/txt_nilai_jam_tutup_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_nilai_jam_buka_list"
+            android:layout_alignParentEnd="true"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_tanggal_buka_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_jam_tutup_list"
+            android:text="Tanggal Buka" />
+
+        <TextView
+            android:id="@+id/txt_nilai_tanggal_buka_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_jam_tutup_list"
+            android:layout_alignParentEnd="true"
+            android:text="Rp 50.000" />
+
+        <TextView
+            android:id="@+id/txt_harga_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_tanggal_buka_list"
+            android:text="Harga" />
+
+        <TextView
+            android:id="@+id/txt_rp_detail_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_tanggal_buka_list"
+            android:layout_toStartOf="@id/txt_nilai_harga_list"
+            android:text="Rp" />
+
+        <TextView
+            android:id="@+id/txt_nilai_harga_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_tanggal_buka_list"
+            android:layout_alignParentEnd="true"
+            android:text="2.000" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_buat_pesanan_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Buat Pesanan Via WhatsApp"
+        android:textColor="@color/white"
+        android:background="@color/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_kontak_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kontak"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_buat_pesanan_list"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_nilai_kontak_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 52.000"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_buat_pesanan_list"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
