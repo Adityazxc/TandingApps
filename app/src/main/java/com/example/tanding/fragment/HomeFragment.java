@@ -54,9 +54,9 @@ public class HomeFragment extends Fragment implements GorAdapter.GorItemCLickLis
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        buildGorData();
+//        buildGorData();
         buildTemanData();
-        buildJadwalData();
+//        buildJadwalData();
         initRecyclerView(view);
         return view;
     }
@@ -81,19 +81,19 @@ public class HomeFragment extends Fragment implements GorAdapter.GorItemCLickLis
         recyclerViewJadwal.setAdapter(jadwalAdapter);
     }
 
-    private void buildGorData() {
-        gorArrayList.clear();
-        for (int i = 0; i < GorList.nama_gor.length; i++) {
-            gorArrayList.add(new Gor(
-                    GorList.nama_gor[i],
-                    GorList.alamat[i],
-                    GorList.jam_buka[i],
-                    GorList.jam_tutup[i],
-                    GorList.tanggal_buka[i],
-                    GorList.gor_image[i]
-            ));
-        }
-    }
+//    private void buildGorData() {
+//        gorArrayList.clear();
+//        for (int i = 0; i < GorList.nama_gor.length; i++) {
+//            gorArrayList.add(new Gor(
+//                    GorList.nama_gor[i],
+//                    GorList.alamat[i],
+//                    GorList.jam_buka[i],
+//                    GorList.jam_tutup[i],
+//                    GorList.tanggal_buka[i],
+//                    GorList.gor_image[i]
+//            ));
+//        }
+//    }
 
     private void buildTemanData() {
         temanArrayList.clear();
@@ -107,27 +107,27 @@ public class HomeFragment extends Fragment implements GorAdapter.GorItemCLickLis
         }
     }
 
-    private void buildJadwalData() {
-        jadwalArrayList.clear();
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
-    }
+//    private void buildJadwalData() {
+//        jadwalArrayList.clear();
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//        jadwalArrayList.add(new Jadwal(new Gor("Sports Arena TTH", "Jl. Raya Kopo No.105", "07:00", "18:00", "01/30/2023", R.drawable.gor_photo1), new Pesanan("00378729", "30/01/2023", "30/01/2023", "10:00", "13:00")));
+//    }
 
     @Override
     public void gorOnItemClick(Gor gor) {
-        Fragment bookingFragment = BookingFragment.newInstance(gor.getNama_gor(), gor.getAlamat(), gor.getGor_image());
+        Fragment bookingFragment = BookingFragment.newInstance(gor.getNama_gor(), gor.getAlamat(), 0);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
                 .replace(R.id.fragmentFrame, bookingFragment, null)
                 .setReorderingAllowed(true)
-                .addToBackStack(null)
+                .addToBackStack("booking")
                 .commit();
     }
 }

@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 
 import com.example.tanding.fragment.ChatFragment;
+import com.example.tanding.fragment.GorListFragment;
 import com.example.tanding.fragment.HistoryFragment;
 import com.example.tanding.fragment.HomeFragment;
 import com.example.tanding.R;
@@ -20,7 +21,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
-    HomeFragment homeFragment = new HomeFragment();
+    GorListFragment gorListFragment = new GorListFragment();
     ChatFragment chatFragment = new ChatFragment();
     HistoryFragment historyFragment = new HistoryFragment();
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
-                .replace(R.id.fragmentFrame, homeFragment, null)
+                .replace(R.id.fragmentFrame, gorListFragment, null)
                 .setReorderingAllowed(true)
                 .addToBackStack(null)
                 .commit();
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home_menu:
                         fragmentManager.beginTransaction()
-                                .replace(R.id.fragmentFrame, homeFragment, null)
+                                .replace(R.id.fragmentFrame, gorListFragment, null)
                                 .setReorderingAllowed(true)
                                 .addToBackStack(null)
                                 .commit();
